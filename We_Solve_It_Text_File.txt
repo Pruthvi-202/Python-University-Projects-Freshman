@@ -1,0 +1,217 @@
+"""
+Project: We_Solve_It_.py
+Team: Jude Pontes, Pruthvi Guduru
+Date Last Updated: 11/19/2024
+About: This program is used to provide the user information about hurricanes and floods.
+"""
+
+#I imported 'sys' in case the user wants to leave the program and close down the system.
+import sys
+
+#This function welcomes the user and explains what the program is used for.
+#This function does not have any parameters.
+#This function also gives some basic items the user can use regardless of the disaster.
+def welcome():
+    
+    print("Hello, welcome to our disaster preperation and guidance program.")
+    print("For now, we will be providing helpful information for only hurricanes and floods.")
+    print(' ')
+
+    basic_list = ['Whistle','Water Bottles','Flashlight','Batteries','First Aid Kit','Rain Jacket','Electronic Device','Packaged Food and Food Cans']
+    print("Here are some basic items that will help you for any type of disaster:")
+    for item in basic_list:
+        print(" ",item)
+        
+    print(" ")
+    print("If you want to know about hurricanes, type in 'h' or 'H'.")
+    print("If you want to know about floods, type in 'f' or 'F'.")
+    print("If you want to exit the program, type in 'x' or 'X'.")
+    print(' ')
+
+#This function is used when the user wants to learn more about the hurricanes.
+#This function does not have any parameters.
+#First, it asks the user to input the wind speed in their area, so they will know what type of hurricane they will witness in order to prepare.
+#Second, it asks the user to input the state in which they live to check approximatly how long the hurricane will last and when the hurricanes will usually attack. This helps prepare the user.
+def hurricane():
+    
+    user_input = int(input("Type in the wind speeds in terms of miles per hour(numbers only):"))
+    user_input = round(user_input,0)
+    if (user_input <= 73):
+        print("Your area most likely won't deal with a hurricane, but still remain cautious.")
+        print(" ")
+    elif (user_input >= 74 and user_input <= 95):
+        print("This is a Category 1 Hurricane.")
+        print("Evacuate if told to do so.")
+        print(" ")
+    elif (user_input >= 96 and user_input <=110):
+        print("This is a Category 2 Hurricane.")
+        print("Evacuate if told to do so.")
+        print(" ")
+    elif (user_input >= 111 and user_input <= 129):
+        print("This is a Category 3 Hurriance.")
+        print("Evacuate if told to do so.")
+        print(" ")
+    elif (user_input >= 130 and user_input <= 156):
+        print("This is a Category 4 Hurricane.")
+        print("Evacuate if told to do so.")
+        print(" ")
+    elif (user_input >= 157):
+        print("This is a Cateogry 5 Hurricane.")
+        print("Evacuate if told to do so.")
+        print(" ")
+    elif (user_input >0):
+        print("Incorrect Input, please try again.")
+        hurricane()
+
+        
+    eastern_pacific_hurricane_states = ['california','nevada','utah','arizona','colorado','new mexico']
+    atlantic_hurricane_states = ['maine','new hampshire','massachusetts','rhode island','connecticut','new jersey','delware','maryland','virginia','north carolina','south carolina','georgia','florida','mississippi','louisiana','alabama']
+    central_pacific_hurricane_state = ['hawaii']
+    state_input = input("Type in the U.S state that you reside in(no abbreviations): ")
+    state_input = state_input.lower()
+    
+    if (state_input in eastern_pacific_hurricane_states):
+        print("Your hurricane season will occur from May 15 to November 30")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n ")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+            
+    elif (state_input in atlantic_hurricane_states):
+        print("Your hurricane season will occur from June 1 to November 30")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n ")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+            
+    elif (state_input in central_pacific_hurricane_state):
+        print("Your hurricane season will occur from June 1 to November 30")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n ")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+        
+    else:
+        print("Your state will most likely not be affected by hurricanes.")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n ")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+
+#This function is for when the user wants to know more about floods.
+#This function does not have any parameters.
+#This function asks the user for the water level in their area to offer advice on the severity of the flood and how to survive before, during, and after the flood.    
+def flood():
+
+    flood_input = float(input("Type in the water level of the flood in centimeters: "))
+    flood_input = round(flood_input,1)
+    
+    if (flood_input >= 0 and flood_input < 0.5):
+        print("This is a very low flood")
+        print("Try evacuating or moving to a safe shelter.")
+        print("Be wary of electrical openings.")
+        print(" ")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+            
+    elif (flood_input >= 0.5 and flood_input < 1):
+        print("This is a low level flood")
+        print("Try evacuating or moving to a safe shelter.")
+        print("Be wary of electrical openings.")
+        print(" ")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+            
+    elif (flood_input >= 1 and flood_input < 2):
+        print("This is a medium level flood.")
+        print("Evecuate if told to do so.")
+        print("Do not touch any electrical openings.")
+        print(" ")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n ")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+            
+    elif (flood_input >= 2 and flood_input < 5):
+        print("This is a high level flood.")
+        print("Try to move to higher ground and stay there, while help arrives.")        
+        print("Be wary of animals")
+        print(" ")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n ")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+            
+    elif (flood_input >= 5):
+        print("This is a severe level flood.")
+        print("Try to move to higher ground and stay there, while help arrives.")        
+        print("Be wary of electrical openings.")
+        print("Be wary of animals.")
+        print(" ")
+        permission = input("Would you like to check for another disater(y/n):")
+        permission = permission.lower()
+        if permission == 'y':
+            print(" \n \n ")
+            main()
+        else:
+            print("Goodbye, stay safe!")
+            sys.exit
+    else:
+        print("Incorrect input. Please try again.")
+        flood()
+
+#This function runs everything. It does not have any parameters.
+def main():
+    welcome()
+    user_input = input("Enter the type of disaster you are trying to research: ")
+    user_input = user_input.lower()
+    if user_input == "h":
+        hurricane()
+    elif user_input == 'f':
+        flood()
+    elif user_input == 'x':
+        print("Goodbye, stay safe!")
+        sys.exit()
+    while user_input != 'h' or user_input != 'f' or user_input != 'x':
+        print("Incorrect input, please try again.")
+        print(" \n \n ")
+        main()
+
+#This function executes everything.        
+main()
